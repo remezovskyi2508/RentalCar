@@ -1,6 +1,52 @@
+@font-face {
+  font-family: 'Manrope';
+  src: url('./assets/fonts/Manrope-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('./assets/fonts/Manrope-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('./assets/fonts/Manrope-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('./assets/fonts/Manrope-SemiBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
 body {
-  font-family: sans-serif;
-  line-height: 1.5;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  height: 100%;
 }
 
 h1,
@@ -13,6 +59,26 @@ p {
   margin: 0;
 }
 
+h1 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+}
+p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8d929a;
+}
+
 ul,
 ol {
   margin: 0;
@@ -22,4 +88,7 @@ ol {
 img {
   display: block;
   max-width: 100%;
+}
+button {
+  cursor: pointer;
 }

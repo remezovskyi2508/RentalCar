@@ -1,17 +1,28 @@
-.wrapper{
-    display: flex;
-    justify-content: space-around;
+.wrapper {
+  background-color: #f2f4f7;
 }
+.contentWraper {
+  display: flex;
+  margin: 0 auto;
+  height: 72px;
+  width: 1440px;
+  padding: 0 120px;
+  align-items: center;
+  justify-content: space-between;
+}
+.logoStyle {
+  height: 16px;
+}
+
 .link {
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  &:first-child {
+    margin-right: 32px;
   }
-  
-  .active {
-    color: white;
-    background-color: orangered;
-  }
-  
+}
+
+.active {
+  color: #0b44cd;
+}

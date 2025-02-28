@@ -10,15 +10,21 @@ const buildLinkClass = ({ isActive }) => {
 export const Header = () => {
   return (
     <div className={css.wrapper}>
-      RentalCar
-      <nav>
-        <NavLink to="/" className={buildLinkClass}>
-          Home
+      <div className={css.contentWraper}>
+        <NavLink to="/" className={css.logoStyle}>
+          <svg className={css.logo} width="114px" height="16px">
+            <use href="/images/icons.svg#icon-logo"></use>
+          </svg>
         </NavLink>
-        <NavLink to="/catalog" className={buildLinkClass}>
-          Catalog
-        </NavLink>
-      </nav>
+        <nav>
+          <NavLink to="/" className={buildLinkClass}>
+            Home
+          </NavLink>
+          <NavLink to="/catalog" className={buildLinkClass}>
+            Catalog
+          </NavLink>
+        </nav>
+      </div>
     </div>
   );
 };
