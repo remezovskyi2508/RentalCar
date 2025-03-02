@@ -1,0 +1,89 @@
+.card {
+  width: 276px;
+  height: 424px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.imageContainer {
+  width: 276px;
+  height: 268px;
+  border-radius: 14px;
+  background-color: cadetblue;
+  position: relative;
+  overflow: hidden;
+}
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.heart {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 16px;
+  right: 16px;
+  z-index: 9;
+  cursor: pointer;
+}
+.icons {
+  width: 16px;
+  height: 16px;
+}
+.details {
+  margin-top: 16px;
+}
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+.highlight {
+  color: #3470ff;
+}
+.price {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+.descrList1 {
+  display: flex;
+  margin-top: 8px;
+}
+.descrList2 {
+  display: flex;
+  margin-top: 4px;
+}
+.descrWrapper {
+  position: relative;
+  margin-right: 12px;
+}
+.descr::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 0;
+  height: 16px;
+  width: 1px;
+  background-color: #dadde1;
+}
+.descr1::after {
+  content: '';
+  position: absolute;
+  right: 6px;
+  top: 0;
+  height: 16px;
+  width: 1px;
+  background-color: #dadde1;
+}
+.btn {
+  margin-top: 28px;
+}

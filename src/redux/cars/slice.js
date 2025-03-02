@@ -9,6 +9,7 @@ const initialState = {
     mileage: { min: '', max: '' },
   },
   brands: [],
+  totalCars: null,
   isFavourite: false,
   error: null,
   loading: false,
@@ -48,6 +49,7 @@ const carsSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.cars = action.payload;
+        state.totalCars = action.payload.totalCars;
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.loading = false;

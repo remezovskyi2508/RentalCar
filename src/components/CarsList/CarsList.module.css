@@ -1,3 +1,31 @@
-.listWrapper {
-    
+.container {
+  padding-top: 56px;
+}
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(3, auto);
+  grid-column-gap: 32px;
+  grid-row-gap: 48px;
+  justify-content: center;
+  align-items: center;
+}
+.loadMoreContainer {
+  display: flex;
+  justify-content: center;
+}
+.loadMoreButton {
+  margin-top: 80px;
+  border: 1px solid #3470ff;
+  border-radius: 12px;
+  padding: 12px 18px;
+  width: 156px;
+  height: 44px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  &:hover {
+    border: 1px solid #0b44cd;
+  }
 }

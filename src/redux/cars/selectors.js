@@ -2,6 +2,7 @@
 export const selectFilters = state => state.cars.filters;
 export const selectBrands = state => state.cars.brands;
 export const selectCars = state => state.cars.cars;
+export const selectTotalCars = state => state.cars.totalCars;
 
 // export const selectUser = state => state.auth.user;
 // export const selectToken = state => state.auth.token;
