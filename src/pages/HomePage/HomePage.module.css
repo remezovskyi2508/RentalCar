@@ -1,12 +1,16 @@
 .bgImage {
+  display: flex;
+  align-items: end;
+  justify-content: center;
   background-image: url('/images/HomePage/home-bg-1x.jpg');
   background-size: cover;
   background-position: center;
   height: calc(100vh - 72px);
   overflow-y: hidden;
+  padding-bottom: 60px;
 }
 
-@media (min-resolution: 2dppx) {
+@media (min-resolution: 192dpi) {
   .bgImage {
     background-image: url('/images/HomePage/home-bg-2x.jpg');
   }

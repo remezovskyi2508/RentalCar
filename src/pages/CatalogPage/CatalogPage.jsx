@@ -1,9 +1,13 @@
-import React from 'react'
+import css from './CatalogPage.module.css';
 
-export const CatalogPage = () => {
+import { SearchBar } from '../../components/SearchBar/SearchBar';
+
+const CatalogPage = () => {
   return (
-    <div>CatalogPage</div>
-  )
-}
+    <div className={css.wrapper}>
+      <SearchBar />
+    </div>
+  );
+};
 
 export default CatalogPage;

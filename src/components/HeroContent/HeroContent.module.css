@@ -1,0 +1,15 @@
+.heroText {
+  display: flex;
+  text-align: center;
+  justify-content: end;
+  flex-direction: column;
+  align-items: center;
+}
+.descr {
+  margin: 16px 0 40px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #fff;
+}
