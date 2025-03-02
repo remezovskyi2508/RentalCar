@@ -18,17 +18,16 @@ export const fetchBrands = createAsyncThunk('brands', async (_, thunkAPI) => {
 export const fetchCars = createAsyncThunk('cars', async (params, thunkAPI) => {
   try {
     const { brand, rentalPrice, minMileage, maxMileage } = params;
-    const { data } = await authInstance.get(
-      '/cars',
-      (params = {
+    const { data } = await authInstance.get('/cars', {
+      params: {
         brand,
         rentalPrice,
         minMileage,
         maxMileage,
         limit: 10,
         page: 1,
-      })
-    );
+      },
+    });
     console.log(data);
     return data;
   } catch (error) {
