@@ -3,13 +3,10 @@ import { fetchBrands, fetchCars } from './operations';
 
 const initialState = {
   cars: [],
-  filters: {
-    brand: null,
-    price: null,
-    mileage: { min: '', max: '' },
-  },
   brands: [],
   totalCars: null,
+  totalPages: null,
+  page: null,
   isFavourite: false,
   error: null,
   loading: false,
@@ -18,14 +15,6 @@ const initialState = {
 const carsSlice = createSlice({
   name: 'cars',
   initialState,
-  reducers: {
-    setBrand: (state, action) => {
-      state.filters.brand = action.payload; // Зберігаємо вибраний бренд
-    },
-    setPrice: (state, action) => {
-      state.filters.price = action.payload; // Зберігаємо вибрану ціну
-    },
-  },
   extraReducers: builder => {
     builder
       .addCase(fetchBrands.pending, state => {
@@ -48,8 +37,10 @@ const carsSlice = createSlice({
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.cars = action.payload;
         state.totalCars = action.payload.totalCars;
+        state.totalPages = action.payload.totalPages;
+        state.page = Number(action.payload.page);
+        state.cars = action.payload;
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.loading = false;
@@ -85,7 +76,5 @@ const carsSlice = createSlice({
     // });
   },
 });
-
-export const { setBrand, setPrice, setMileageFilter } = carsSlice.actions;
 
 export default carsSlice.reducer;

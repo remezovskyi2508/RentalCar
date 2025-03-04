@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import css from './CarsList.module.css';
 import { CarItem } from '../CarItem/CarItem';
-import { selectCars, selectTotalCars } from '../../redux/cars/selectors';
+import {
+  selectCars,
+  selectCurrentPage,
+  selectTotalPages,
+} from '../../redux/cars/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from '../../redux/cars/operations';
 
 export const CarsList = () => {
   const dispatch = useDispatch();
   const { cars = [] } = useSelector(selectCars);
-  const totalCars = useSelector(selectTotalCars);
-
-  const [limit, setLimit] = useState(12);
+  const totalPages = useSelector(selectTotalPages);
+  const currentPages = useSelector(selectCurrentPage);
 
   const loadMoreCars = () => {
-    const newLimit = limit + 12;
-    setLimit(newLimit);
-    dispatch(fetchCars({ limit: newLimit }));
+    dispatch(fetchCars({ page: currentPages + 1 }));
   };
 
   return (
@@ -29,7 +30,7 @@ export const CarsList = () => {
       ) : null}
       {}
       <div className={css.loadMoreContainer}>
-        {totalCars > limit && (
+        {totalPages > currentPages && (
           <button className={css.loadMoreButton} onClick={loadMoreCars}>
             Load More
           </button>

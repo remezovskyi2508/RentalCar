@@ -29,10 +29,10 @@ export const fetchCars = createAsyncThunk('cars', async (params, thunkAPI) => {
         page,
       },
     });
+    console.log('DATA :', data);
     return data;
   } catch (error) {
     console.error('Error response: ', error.response);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-
