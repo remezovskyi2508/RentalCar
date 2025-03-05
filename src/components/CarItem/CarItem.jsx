@@ -12,7 +12,7 @@ export const CarItem = ({ car }) => {
         <img src={car.img} alt={car.name} className={css.image} />
         <div className={css.heart}>
           <svg className={css.icons}>
-            <use href="./public/images/icons.svg#logoheart" />
+            <use href="./public/images/icons.svg#logoheartEmpty" />
           </svg>
         </div>
       </div>
