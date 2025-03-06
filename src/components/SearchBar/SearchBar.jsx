@@ -37,10 +37,8 @@ export const SearchBar = () => {
     const params = {
       brand: selectedBrand ? selectedBrand.value : null,
       rentalPrice: selectedPrice ? selectedPrice.value : null,
-      mileage: {
-        minMileage: minMileage ? minMileage : '0',
-        maxMileage: maxMileage ? maxMileage : '0',
-      },
+      minMileage: minMileage ? minMileage : null,
+      maxMileage: maxMileage ? maxMileage : null,
     };
     await dispatch(fetchCars(params));
   };

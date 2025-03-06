@@ -3,16 +3,29 @@ import css from './CarItem.module.css';
 import { splitAddress } from '../../js/carItem';
 import { MainButton } from '../MainButton/MainButton';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleFavourites } from '../../redux/cars/slice';
+import { selectFavourites } from '../../redux/cars/selectors';
 
 export const CarItem = ({ car }) => {
   const { city, country } = splitAddress(car);
+  const favouriteArray = useSelector(selectFavourites);
+  const dispatch = useDispatch();
+  const handleClickFavouriteCar = () => {
+    dispatch(toggleFavourites(car.id));
+  };
+  const isFavourite = favouriteArray.includes(car.id);
   return (
     <div className={css.card}>
       <div className={css.imageContainer}>
         <img src={car.img} alt={car.name} className={css.image} />
-        <div className={css.heart}>
+        <div className={css.heart} onClick={handleClickFavouriteCar}>
           <svg className={css.icons}>
-            <use href="./public/images/icons.svg#logoheart" />
+            {isFavourite ? (
+              <use href="./public/images/icons.svg#logoheart" />
+            ) : (
+              <use href="./public/images/icons.svg#logoheartEmpty" />
+            )}
           </svg>
         </div>
       </div>

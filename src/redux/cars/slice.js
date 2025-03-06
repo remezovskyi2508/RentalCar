@@ -3,14 +3,12 @@ import { fetchBrands, fetchCars } from './operations';
 
 const initialState = {
   cars: [],
-  filters: {
-    brand: null,
-    price: null,
-    mileage: { min: '', max: '' },
-  },
   brands: [],
   totalCars: null,
+  totalPages: null,
+  page: null,
   isFavourite: false,
+  favouritesCars: [],
   error: null,
   loading: false,
 };
@@ -19,11 +17,13 @@ const carsSlice = createSlice({
   name: 'cars',
   initialState,
   reducers: {
-    setBrand: (state, action) => {
-      state.filters.brand = action.payload; // Зберігаємо вибраний бренд
-    },
-    setPrice: (state, action) => {
-      state.filters.price = action.payload; // Зберігаємо вибрану ціну
+    toggleFavourites: (state, action) => {
+      const cardId = action.payload;
+      if (state.favouritesCars.includes(cardId)) {
+        state.favouritesCars = state.favouritesCars.filter(id => id !== cardId);
+      } else {
+        state.favouritesCars.push(cardId);
+      }
     },
   },
   extraReducers: builder => {
@@ -48,8 +48,10 @@ const carsSlice = createSlice({
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.cars = action.payload;
         state.totalCars = action.payload.totalCars;
+        state.totalPages = action.payload.totalPages;
+        state.page = Number(action.payload.page);
+        state.cars = action.payload;
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.loading = false;
@@ -85,7 +87,6 @@ const carsSlice = createSlice({
     // });
   },
 });
-
-export const { setBrand, setPrice, setMileageFilter } = carsSlice.actions;
+export const { toggleFavourites } = carsSlice.actions;
 
 export default carsSlice.reducer;
