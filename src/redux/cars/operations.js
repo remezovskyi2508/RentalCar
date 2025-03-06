@@ -36,3 +36,14 @@ export const fetchCars = createAsyncThunk('cars', async (params, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const fetchCarByID = createAsyncThunk('cars/id', async (id, thunkAPI) => {
+  try {
+    const { data } = await authInstance.get(`/cars/${id}`);
+    console.log('DATA Cars/id :', data);
+    return data;
+  } catch (error) {
+    console.error('Error response: ', error.response);
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

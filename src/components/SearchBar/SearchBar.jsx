@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBrands, fetchCars } from '../../redux/cars/operations';
 import { selectBrands } from '../../redux/cars/selectors';
+import { SmallButton } from '../SmallButton/SmallButton';
 
 export const SearchBar = () => {
   const dispatch = useDispatch();
@@ -58,7 +59,6 @@ export const SearchBar = () => {
           styles={firstFilterStyles(isOpenBrand)}
         />
       </div>
-
       <div className="w-1/4">
         <label className={css.label}>Price / 1 hour</label>
         <Select
@@ -73,7 +73,6 @@ export const SearchBar = () => {
           formatOptionLabel={formatOptionLabel}
         />
       </div>
-
       <div className={css.inputWrapper}>
         <label className={css.label} htmlFor="mileage">
           Сar mileage / km
@@ -111,9 +110,7 @@ export const SearchBar = () => {
           </div>
         </div>
       </div>
-      <button className={css.submit} type="submit" onClick={handleSearch}>
-        Search
-      </button>
+      <SmallButton onClick={handleSearch}>Search</SmallButton>
     </div>
   );
 };

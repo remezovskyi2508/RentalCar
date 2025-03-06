@@ -6,6 +6,7 @@ export const selectTotalPages = state => state.cars.totalPages;
 export const selectCurrentPage = state => state.cars.page;
 export const selectFavourites = state => state.cars.favouritesCars;
 export const selectIsFavourites = state => state.cars.isFavourite;
+export const selectCarId = state => state.cars.carId;
 
 // export const selectUser = state => state.auth.user;
 // export const selectToken = state => state.auth.token;
