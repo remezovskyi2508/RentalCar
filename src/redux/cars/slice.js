@@ -8,6 +8,7 @@ const initialState = {
   totalPages: null,
   page: null,
   isFavourite: false,
+  favouritesCars: [],
   error: null,
   loading: false,
 };
@@ -15,6 +16,16 @@ const initialState = {
 const carsSlice = createSlice({
   name: 'cars',
   initialState,
+  reducers: {
+    toggleFavourites: (state, action) => {
+      const cardId = action.payload;
+      if (state.favouritesCars.includes(cardId)) {
+        state.favouritesCars = state.favouritesCars.filter(id => id !== cardId);
+      } else {
+        state.favouritesCars.push(cardId);
+      }
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchBrands.pending, state => {
@@ -76,5 +87,6 @@ const carsSlice = createSlice({
     // });
   },
 });
+export const { toggleFavourites } = carsSlice.actions;
 
 export default carsSlice.reducer;
